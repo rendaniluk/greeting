@@ -6,7 +6,7 @@ var clearBtn = document.querySelector('.clear');
 //
 var clickMe = function(){
   if (theName.value.length > 0){
-  var li = "Hello, "+ theName.value;
+  var li = "Hello, "+ theName.value+" greetings from Rendani.";
   myList.innerHTML = li;
   theName.value = '';
  }

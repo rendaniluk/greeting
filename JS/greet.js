@@ -8,6 +8,10 @@ var theName = document.querySelector('.theName')
 var counter = document.querySelector('#counter')
 //declaring empty variable namesGreeted to store names already greeted
 var namesGreeted = {};
+//setting counter to zero
+if(typeof(localStorage.count) === 'undefined'){
+  localStorage.setItem("count",0);
+}
 //showing user the last session greetings count using localStorage
 counter.innerHTML = localStorage.count;
 //function for greetings including counter

@@ -9,8 +9,8 @@ var counter = document.querySelector('#counter')
 //declaring empty variable namesGreeted to store names already greeted
 var namesGreeted = {};
 //setting counter to zero
-if(typeof(localStorage.count) === 'undefined'){
-  localStorage.setItem("count",0);
+if (typeof(localStorage.count) === 'undefined') {
+    localStorage.setItem("count", 0);
 }
 //showing user the last session greetings count using localStorage
 counter.innerHTML = localStorage.count;
@@ -22,18 +22,24 @@ function clickMe() {
     var selectedRadBtn = document.querySelector("input[name='lang']:checked");
     var li = selectedRadBtn.value + ',' + ' ' + x.toUpperCase();
     //check if name already greeted and print massage using innerHTML.
-    if (namesGreeted[x] !== undefined && x.length > 0) {
-        myList.innerHTML = li;
-        return;
-    }
-    //counter for x value greater than zero if less no count
     if (x.length > 0) {
+        myList.innerHTML = li;
+
+    }
+    if (namesGreeted[x] === undefined && x.length > 0) {
         namesGreeted[x] = 1;
         localStorage.count++;
         counter.innerHTML = localStorage.count;
+        return;
     }
+    //counter for x value greater than zero if less no count
+    //namesGreeted[x] = 1;
+    //localStorage.count++;
+    //counter.innerHTML = localStorage.count;
+
 
 };
+
 //adding eventlisteners to greetBtn and reset
 greetBtn.addEventListener('click', clickMe);
 //greet next person eventlisteners

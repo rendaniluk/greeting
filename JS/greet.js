@@ -1,19 +1,45 @@
-//The DOM - document objec model
-var theName = document.querySelector('.theName');
-var btn = document.querySelector('.theButton');
+//The DOM - document objec model -selecting HTML elements.
+var radBtn = document.querySelector('.radioBtn');
+var greetBtn = document.querySelector('.theButton');
+var reset = document.querySelector('.reset');
+var nextPerson = document.querySelector('.next');
 var myList = document.querySelector('.myList');
-var clearBtn = document.querySelector('.clear');
-//
-var clickMe = function(){
-  if (theName.value.length > 0){
-  var li = "Hello, "+ theName.value+" greetings from Rendani.";
-  myList.innerHTML = li;
-  theName.value = '';
- }
-}
+var theName = document.querySelector('.theName')
+var counter = document.querySelector('#counter')
+//declaring empty variable namesGreeted to store names already greeted
+var namesGreeted = {};
+//showing user the last session greetings count using localStorage
+counter.innerHTML = localStorage.count;
+//function for greetings including counter
+function clickMe() {
+    //storing theName.value into variable x
+    var x = theName.value;
+    //selecting radio button using querySelector and store them into selectedRadBtn
+    var selectedRadBtn = document.querySelector("input[name='lang']:checked");
+    var li = selectedRadBtn.value + ',' + ' ' + x.toUpperCase();
+    //check if name already greeted and print massage using innerHTML.
+    if (namesGreeted[x] !== undefined && x.length > 0) {
+        myList.innerHTML = li;
+        return;
+    }
+    //counter for x value greater than zero if less no count
+    if (x.length > 0) {
+        namesGreeted[x] = 1;
+        localStorage.count++;
+        counter.innerHTML = localStorage.count;
+    }
 
-btn.addEventListener('click', clickMe);
-
-clearBtn.addEventListener('click', function(){
+};
+//adding eventlisteners to greetBtn and reset
+greetBtn.addEventListener('click', clickMe);
+//greet next person eventlisteners
+nextPerson.addEventListener('click', function() {
+    theName.value = '';
     myList.innerHTML = '';
+});
+//reset counter eventlisteners
+reset.addEventListener('click', function() {
+    localStorage.count = 0;
+    namesGreeted = {};
+    counter.innerHTML = localStorage.count;
 });

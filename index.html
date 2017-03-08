@@ -13,18 +13,25 @@
             <div id="name">
               Name : <input type="text" class="theName" placeholder="enter name here" value="">
             </div>
+            <div class="radioBtn">
+                <input type="radio"  name="lang" value="Hello" checked="true">English
+                <input type="radio"  name="lang" value="Ndaa/Aa">TshiVenda
+                <input type="radio"  name="lang" value="Molo">isiXhosa
+                <input type="radio"  name="lang" value="Hallo">Afrikaans
+
+              </div>
             <div id="btngreet">
               <input type="button" class="theButton" value="Greet Me">
-              <input type="button" class="clear" name="name" value="Clear">
+              <input type="button" class="next" name="name" value="Clear All">
+              <input type="button" class="reset" name="name" value="Reset Counter">
+
+            </div>
+            <div class="counter">
+                <p id="counter"></p>
             </div>
             <div class="grr">
               <h1><ul class="myList"></ul></h1>
-            </div>
-
-      </div>
-      <script src="JS/greet.js" charset="utf-8"></script>
-
+</div>      </div>
     </body>
-
-
+    <script src="JS/greet.js" charset="utf-8"></script>
 </html>

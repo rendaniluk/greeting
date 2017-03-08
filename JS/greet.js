@@ -21,7 +21,7 @@ function clickMe() {
     //selecting radio button using querySelector and store them into selectedRadBtn
     var selectedRadBtn = document.querySelector("input[name='lang']:checked");
     var li = selectedRadBtn.value + ',' + ' ' + x.toUpperCase();
-    //check if name already greeted and print massage using innerHTML.
+    //check if name already greeted to increase counter and print massage using innerHTML.
     if (x.length > 0) {
         myList.innerHTML = li;
 
@@ -32,14 +32,7 @@ function clickMe() {
         counter.innerHTML = localStorage.count;
         return;
     }
-    //counter for x value greater than zero if less no count
-    //namesGreeted[x] = 1;
-    //localStorage.count++;
-    //counter.innerHTML = localStorage.count;
-
-
 };
-
 //adding eventlisteners to greetBtn and reset
 greetBtn.addEventListener('click', clickMe);
 //greet next person eventlisteners

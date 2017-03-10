@@ -6,16 +6,22 @@ var nextPerson = document.querySelector('.next');
 var myList = document.querySelector('.myList');
 var theName = document.querySelector('.theName')
 var counter = document.querySelector('#counter')
+var greeted = {};
+
 //declaring empty variable namesGreeted to store names already greeted
 
 //setting counter to zero
 if (localStorage.count === undefined) {
     localStorage.setItem("count", 0);
 }
-if (localStorage.getItem('greeted') ===undefined) {
-  localStorage.setItem('greeted', JSON.stringify({}));
 
+if (localStorage.getItem('greeted') === undefined) {
+  localStorage.setItem('greeted', JSON.stringify(greeted));
 }
+else{
+  greeted = JSON.parse(localStorage.getItem('greeted'));
+}
+
 //showing user the last session greetings count using localStorage
 counter.innerHTML = localStorage.count;
 localStorage.setItem('greeted', JSON.stringify({}));
@@ -32,15 +38,12 @@ function clickMe() {
 
     }
 
-    var greeted = JSON.parse(localStorage.getItem('greeted'));
-
     if (greeted[x] === undefined && x.length > 0) {
         greeted[x] = 1;
         localStorage.count++;
         counter.innerHTML = localStorage.count;
         localStorage.setItem('greeted', JSON.stringify(greeted));
-
-	}
+	   }
 };
 //adding eventlisteners to greetBtn and reset
 greetBtn.addEventListener('click', clickMe);

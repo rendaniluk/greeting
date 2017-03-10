@@ -7,31 +7,40 @@ var myList = document.querySelector('.myList');
 var theName = document.querySelector('.theName')
 var counter = document.querySelector('#counter')
 //declaring empty variable namesGreeted to store names already greeted
-var namesGreeted = {};
+
 //setting counter to zero
-if (typeof(localStorage.count) === 'undefined') {
+if (localStorage.count === undefined) {
     localStorage.setItem("count", 0);
+}
+if (localStorage.getItem('greeted') ===undefined) {
+  localStorage.setItem('greeted', JSON.stringify({}));
+
 }
 //showing user the last session greetings count using localStorage
 counter.innerHTML = localStorage.count;
+//localStorage.setItem('greeted', JSON.stringify({}));
 //function for greetings including counter
 function clickMe() {
     //storing theName.value into variable x
     var x = theName.value;
     //selecting radio button using querySelector and store them into selectedRadBtn
     var selectedRadBtn = document.querySelector("input[name='lang']:checked");
-    var li = selectedRadBtn.value + ',' + ' ' + x.toUpperCase();
+    var li = selectedRadBtn.value + ',' + ' ' + x.substr(0,1).toUpperCase() + x.substr(1).toLowerCase();
     //check if name already greeted to increase counter and print massage using innerHTML.
     if (x.length > 0) {
         myList.innerHTML = li;
 
     }
-    if (namesGreeted[x] === undefined && x.length > 0) {
-        namesGreeted[x] = 1;
+
+    var greeted = JSON.parse(localStorage.getItem('greeted'));
+
+    if (greeted[x] === undefined && x.length > 0) {
+        greeted[x] = 1;
         localStorage.count++;
         counter.innerHTML = localStorage.count;
-        return;
-    }
+        localStorage.setItem('greeted', JSON.stringify(greeted));
+
+	}
 };
 //adding eventlisteners to greetBtn and reset
 greetBtn.addEventListener('click', clickMe);
@@ -43,6 +52,5 @@ nextPerson.addEventListener('click', function() {
 //reset counter eventlisteners
 reset.addEventListener('click', function() {
     localStorage.count = 0;
-    namesGreeted = {};
     counter.innerHTML = localStorage.count;
 });

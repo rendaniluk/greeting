@@ -18,7 +18,7 @@ if (localStorage.getItem('greeted') ===undefined) {
 }
 //showing user the last session greetings count using localStorage
 counter.innerHTML = localStorage.count;
-//localStorage.setItem('greeted', JSON.stringify({}));
+localStorage.setItem('greeted', JSON.stringify({}));
 //function for greetings including counter
 function clickMe() {
     //storing theName.value into variable x

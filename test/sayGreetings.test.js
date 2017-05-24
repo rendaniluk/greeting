@@ -1,4 +1,4 @@
-describe('Get greet a person', function(){
+describe('Generate greetings', function(){
 
   it('should generate massage', function(){
 

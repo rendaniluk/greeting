@@ -31,7 +31,7 @@ function clickMe() {
     var x = theName.value;
     //selecting radio button using querySelector and store them into selectedRadBtn
     var selectedRadBtn = document.querySelector("input[name='lang']:checked");
-    var li = selectedRadBtn.value + ',' + ' ' + getInputMsg(x);
+    var li = selectedRadBtn.value + ',' + ' ' + x.substr(0,1).toUpperCase() + x.substr(1).toLowerCase();
     //check if name already greeted to increase counter and print massage using innerHTML.
     if (x.length > 0) {
         myList.innerHTML = li;

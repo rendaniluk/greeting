@@ -1,24 +1,16 @@
 //function
 var getRadioBtnValue = function(lulimi) {
-  var selectedRadBtn = [];
-  var luambo = ["English", "TshiVenda", "isiXhosa", "Afrikaans"];
-
-    if (luambo === "English") {
-      selectedRadBtn.push(luambo)
-      return selectedRadBtn;
-    } else if (luambo === "TshiVenda") {
-      selectedRadBtn.push(luambo)
-
-      return selectedRadBtn;
-    } else if (luambo === "isiXhosa") {
-      selectedRadBtn.push(luambo)
-
-    return selectedRadBtn;
-    } else if (luambo === "Afrikaans") {
-      selectedRadBtn.push(luambo)
-
-    return selectedRadBtn;
-    }
+  if (lulimi === "English") {
+    var English = "Hello, ";
+    return English;
+  } else if (lulimi === "TshiVenda") {
+    var TshiVenda = "Ndaa/Aa, ";
+    return TshiVenda;
+  } else if (lulimi === "Afrikaans") {
+    var Afrikaans = "Hallo, ";
+    return Afrikaans
+  } else {
+    var isiXhosa = "Molo, ";
+    return isiXhosa;
+  }
 }
-var English = getRadioBtnValue("English");
-console.log(English);

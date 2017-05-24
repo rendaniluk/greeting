@@ -1,4 +1,4 @@
-var sayGreetings = function (theName){
-var greetings = "Hello, "+ getInputMsg(theName);
+var sayGreetings = function (language, theName){
+var greetings = getRadioBtnValue(language) + getInputMsg(theName);
   return greetings;
 }

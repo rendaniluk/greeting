@@ -1,8 +1,8 @@
 // const getRadioBtnValue = require('./getRadioBtnValue');
 // const getInputMsg = require('./getInputMsg');
 
-var sayGreetings = function(language, theName) {
+var sayGreetings = function(lulimi, theName) {
   // module.exports = function(language, theName) {
-  var greetings = getRadioBtnValue(language) + getInputMsg(theName);
+  var greetings = getRadioBtnValue(lulimi) + getInputMsg(theName);
   return greetings;
 }

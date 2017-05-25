@@ -2,51 +2,42 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Greeting Web-page</title>
-    <link rel="stylesheet" href="Css/greet.css" media="screen" title="no title">
-
-    <script src="getInputMsg.js" charset="utf-8"></script>
-    <script src="getRadioBtnValue.js" charset="utf-8"></script>
-    <script src="sayGreetings.js" charset="utf-8"></script>
-
+  <meta charset="utf-8">
+  <title>Greeting Web-page</title>
+  <link rel="stylesheet" href="Css/greet.css" media="screen" title="no title">
+  <script src="getInputMsg.js" charset="utf-8"></script>
+  <script src="getRadioBtnValue.js" charset="utf-8"></script>
+  <script src="sayGreetings.js" charset="utf-8"></script>
 </head>
-
 <body>
-
-
-    <div id="container">
-        <div id="greeting">
-            <h1>Greeting</h1>
-        </div>
-        <div id="name">
-            Name : <input type="text" class="theName" placeholder="enter name here" value="">
-        </div>
-        <div class="radioBtn">
-            <label for="English">English<input type="radio" name="lang" value="Hello" checked="true"></label>
-            <label for="TshiVenda">TshiVenda<input type="radio" name="lang" value="Ndaa/Aa"></label>
-            <label for="isiXhosa">isiXhosa<input type="radio" name="lang" value="Molo"></label>
-            <label for="Afrikaans">Afrikaans<input type="radio" name="lang" value="Hallo"></label>
-
-        </div>
-        <div id="btngreet">
-            <input type="button" class="theButton" value="Greet Me">
-            <input type="button" class="next" name="name" value="Clear All">
-            <input type="button" class="reset" name="name" value="Reset Counter">
-
-        </div>
-        <div class="counter">
-            <p id="counter"></p>
-        </div>
-        <div class="grr">
-            <h1><ul class="myList"></ul></h1>
-        </div>
+  <div id="container">
+    <div id="greeting">
+      <h1>Greeting</h1>
     </div>
-
+    <div id="name">
+      Name : <input type="text" class="theName" placeholder="enter name here" value="">
+    </div>
+    <div class="radioBtn">
+      English<input type="radio" name="lang" value="English" checked="true">
+      TshiVenda<input type="radio" name="lang" value="TshiVenda">
+      Afrikaans<input type="radio" name="lang" value="Afrikaans">
+      isiXhosa <input type="radio" name="lang" value="isiXhosa">
+    </div>
+    <div id="btngreet">
+      <input type="button" class="theButton" value="Greet Me">
+      <input type="button" class="next" name="name" value="Clear All">
+      <input type="button" class="reset" name="name" value="Reset Counter">
+    </div>
+    <div class="counter">
+      <p id="counter"></p>
+    </div>
+    <div class="grr">
+      <h1><ul class="myList"></ul></h1>
+    </div>
+  </div>
 </body>
 <script src="JS/greet.js" charset="utf-8"></script>
 <footer>
-    Developed By Lukhwa Rendani &copy2017 codeX.
+  Developed By Lukhwa Rendani &copy2017 codeX.
 </footer>
-
 </html>

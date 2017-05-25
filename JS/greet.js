@@ -1,59 +1,45 @@
+"use strict"
 //The DOM - document objec model -selecting HTML elements.
-var radBtn = document.querySelector('.radioBtn');
 var greetBtn = document.querySelector('.theButton');
 var reset = document.querySelector('.reset');
 var nextPerson = document.querySelector('.next');
 var myList = document.querySelector('.myList');
 var theName = document.querySelector('.theName');
 var counter = document.querySelector('#counter')
-var greeted = {};
+var selectedRadBtn = document.querySelector("input[name='lang']:checked");
 
-//declaring empty variable namesGreeted to store names already greeted
+var greeted = {}; //empty object to keep greeted names
 
-//setting counter to zero
-if (localStorage.count === undefined) {
-    localStorage.setItem("count", 0);
+if (localStorage.count === undefined) { //initializing counter
+  localStorage.setItem("count", 0);
 }
 
-if (localStorage.getItem('greeted') === undefined) {
-  localStorage.setItem('greeted', JSON.stringify(greeted));
-}
-else{
-  greeted = JSON.parse(localStorage.getItem('greeted'));
-}
+counter.innerHTML = localStorage.count; //showing user the last session greetings count using localStorage
+localStorage.setItem('greeted', JSON.stringify({})); //setting up localStorage
 
-//showing user the last session greetings count using localStorage
-counter.innerHTML = localStorage.count;
-localStorage.setItem('greeted', JSON.stringify({}));
-//function for greetings including counter
-function clickMe() {
-    //storing theName.value into variable x
-    var x = theName.value;
-    //selecting radio button using querySelector and store them into selectedRadBtn
-    var selectedRadBtn = document.querySelector("input[name='lang']:checked");
-    var li = selectedRadBtn.value + ',' + ' ' + getInputMsg(x);
-    //check if name already greeted to increase counter and print massage using innerHTML.
-    if (x.length > 0) {
-        myList.innerHTML = li;
+function clickMe() { //function for button functionality
 
-    }
+  var li = sayGreetings(selectedRadBtn.value, theName.value); //calling function to generate greeting massage
 
-    if (greeted[x] === undefined && x.length > 0) {
-        greeted[x] = 1;
-        localStorage.count++;
-        counter.innerHTML = localStorage.count;
-        localStorage.setItem('greeted', JSON.stringify(greeted));
-	   }
-};
-//adding eventlisteners to greetBtn and reset
-greetBtn.addEventListener('click', clickMe);
-//greet next person eventlisteners
-nextPerson.addEventListener('click', function() {
-    theName.value = '';
-    myList.innerHTML = '';
-});
-//reset counter eventlisteners
-reset.addEventListener('click', function() {
-    localStorage.count = 0;
+  if ((theName.value).length > 0) { //condition to check if text box value is typed in then display greeting
+    myList.innerHTML = li;
+  }
+
+  if (greeted[theName.value] === undefined && (theName.value).length > 0) { //condition to check if name exists and increament once if does'nt exists
+    greeted[theName.value] = 1;
+    localStorage.count++;
     counter.innerHTML = localStorage.count;
+    localStorage.setItem('greeted', JSON.stringify(greeted));
+  }
+};
+
+greetBtn.addEventListener('click', clickMe); //adding eventlisteners to greetBtn and reset
+
+nextPerson.addEventListener('click', function() { //greet next person eventlisteners
+  theName.value = '';
+  myList.innerHTML = '';
+});
+reset.addEventListener('click', function() { //reset counter eventlisteners
+  localStorage.count = 0;
+  counter.innerHTML = localStorage.count;
 });

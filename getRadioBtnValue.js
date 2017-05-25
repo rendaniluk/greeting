@@ -1,5 +1,6 @@
 //function
 var getRadioBtnValue = function(lulimi) {
+  // module.exports = function(lulimi) {
   if (lulimi === "English") {
     var English = "Hello, ";
     return English;

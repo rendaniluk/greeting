@@ -14,16 +14,16 @@ var getRadioBtnValue = function(lulimi) {
   //   var isiXhosa = "Molo, ";
   //   return isiXhosa;
   // }
-  switch(lulimi) {
+  switch (lulimi) {
     case 'English':
-    return "Hello, "
+      return "Hello, "
     case 'TshiVenda':
-    return "Ndaa/Aa, ";
+      return "Ndaa/Aa, ";
     case 'Afrikaans':
-    return "Hallo, ";
+      return "Hallo, ";
     case 'isiXhosa':
-    return "Molo, ";
+      return "Molo, ";
     default:
-    return 'no radio button selected';
+      return 'no radio button selected';
   }
 };
